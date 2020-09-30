@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block body%}
+    <html>
+        <head>
+            <style>
+                h2 {text-align: center; vertical-align: middle; line-height: 400px; }
+            </style>
+        </head>
+        <body>
+            <h2 style="color:rgb(201, 29, 29)"> Cuisine Type is : {{data}} !</h2>
+
+            <!-- #EXPERIMENT -->
+                <div class="row justify-content-center">
+                    <div class="col-md-6 mt-3">
+                        <h3>Want me to find where you could find that yummy food ?</h3>
+                        <form action="/imgsearch" method="POST">
+        
+                            <div class="form-group" required="required">
+                                <label for="area">Where's your nearest area?</label>
+                                <select name="area" class="form-control">
+                                    <option value='Jakarta Pusat'>Jakarta Pusat</option>
+                                    <option value='Jakarta Utara'>Jakarta Utara</option>
+                                    <option value='Jakarta Selatan'>Jakarta Selatan</option>
+                                    <option value='Jakarta Timur'>Jakarta Timur</option>
+                                    <option value='Jakarta Barat'>Jakarta Barat</option>
+                                </select>
+                            </div>
+        
+                            <button type="submit" class="btn btn-danger mt-4">
+                                Let's Find Those Yummy Foods!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <!-- #EXPERIMENT -->
+
+        </body>
+    </html>
+{% endblock body%}

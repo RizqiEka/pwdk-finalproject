@@ -1,0 +1,24 @@
+{% extends 'layout.html'%}
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% block body%}
+    <div class="container pt 5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+                <h2>Upload Photos of Food You Want To Eat !</h2>
+                <form action="/classify" enctype="multipart/form-data" method="POST">
+                    <input type="file" name="file">
+                    <br></br>
+                    <button type="submit" class="btn btn-danger mt-4">
+                        Upload Food to Your Belly!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock body%}
+    </body>
+</html>

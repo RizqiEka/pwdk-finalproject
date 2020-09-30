@@ -1,0 +1,30 @@
+{% extends 'layout.html'%}
+
+{% block body%}
+<head>
+    <style>
+        body{margin: 0px;}.container-flex{display: flex;height: 100vh}
+    </style>
+</head>
+    <h1>Restaurants in Jabodetabek</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                {% for item in data.columns%}
+                    <th>{{item}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, item in data.iterrows()%}
+            <tr>
+                {% for col in item %}
+                    <td> {{col}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock body%}

@@ -1,0 +1,176 @@
+{% extends 'layout.html'%}
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% block body%}
+    <div class="container pt 5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+                <h2>Fill This Form for Price Prediction !</h2>
+                <!-- method POST mengubah menjadi list 2 dimensi -->
+                <form action="/prediction" method="POST">
+
+                    <!-- <input type="number" step="0.01" name="Color" placeholder="Color" class="form-control form-control-sm mt-2">
+                    <input type="number" step="0.01" name="ABV" placeholder="ABV" class="form-control form-control-sm mt-2"> -->
+
+                    <br></br>
+                    <h3>Restaurant General Data</h3>
+
+                    <div class="form-group" required="required">
+                        <label for="finedining">Tipe Restaurant Fine Dining?</label>
+                        <select name="finedining" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="casualdining">Tipe Restaurant Casual Dining?</label>
+                        <select name="casualdining" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="quickbites">Tipe Restaurant Quick Bites?</label>
+                        <select name="quickbites" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="barat">Menyediakan Masakan Barat?</label>
+                        <select name="barat" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <br></br>
+                    <h3>Restaurant Rating and Review</h3>
+                    <input type="number" step="0.1" name="rating" placeholder="Restaurant Rating" class="form-control form-control-sm mt-2" min="0" max="5">
+                    <input type="number" step="1" name="review" placeholder="Restaurant Review Counts" class="form-control form-control-sm mt-2" min="0">
+
+                    <br></br>
+                    <h3>Restaurant Facilites & Additional Info</h3>
+
+                    <div class="form-group" required="required">
+                        <label for="reservasimejarekom">Reservasi Meja Direkomendasikan?</label>
+                        <select name="reservasimejarekom" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="makanmewah">Makan Mewah?</label>
+                        <select name="makanmewah" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="alkoholtersedia">Menyediakan Alkohol?</label>
+                        <select name="alkoholtersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="wifitersedia">Menyediakan WiFi?</label>
+                        <select name="wifitersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="ruangprivate">Menyediakan Ruang Private?</label>
+                        <select name="ruangprivate" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="hanyawinedanbir">Hanya Ada Wine dan Bir?</label>
+                        <select name="hanyawinedanbir" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="parkirvalettersedia">Menyediakan Parkir Valet?</label>
+                        <select name="parkirvalettersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="cocktailtersedia">Menyediakan Cocktail?</label>
+                        <select name="cocktailtersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="buffettersedia">Menyediakan Buffet?</label>
+                        <select name="buffettersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="hanyabir">Hanya Ada Bir?</label>
+                        <select name="hanyabir" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="liveent">Menyediakan Live Entertainment?</label>
+                        <select name="liveent" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="nightlife">Untuk Night Life?</label>
+                        <select name="nightlife" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" required="required">
+                        <label for="takeawaytersedia">Menyediakan TakeAway?</label>
+                        <select name="takeawaytersedia" class="form-control">
+                            <option value=1>Yes</option>
+                            <option value=0>No</option>
+                        </select>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-danger mt-4">
+                        Let's Roll the Prediction!
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock body%}
+    </body>
+</html>

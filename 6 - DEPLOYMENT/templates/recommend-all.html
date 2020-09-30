@@ -1,0 +1,27 @@
+{% extends 'layout.html'%}
+<html>
+    <head>
+
+    </head>
+    <body>
+    {% block body%}
+    <div class="container pt 5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+                <h2>Fill This Form to Find Similar Restaurants to Fill Your Belly !</h2>
+                <!-- method POST mengubah menjadi list 2 dimensi -->
+                <form action="/recomenderall" method="POST">
+
+                    <input type=""text name="nama" placeholder="Hungry? Type it here and let me find it for you!" class="form-control">
+
+                    <button type="submit" class="btn btn-danger mt-4">
+                        Let's Find Similar Restaurants!
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock body%}
+    </body>
+</html>
