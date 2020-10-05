@@ -11,7 +11,7 @@ from flask.helpers import flash
 
 app=Flask(__name__)
 
-UPLOAD_FOLDER = 'D:\Personal Data\Data Science\Personal Project\data\data\static\images'
+UPLOAD_FOLDER = r'D:\Personal Data\Data Science\Personal Project\Final Project Purwadhika - JKT Foodies One Stop Guide\6 - DEPLOYMENT\static\images'
 ALLOWED_EXTENSION = set(['png', 'jpeg', 'jpg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -72,9 +72,19 @@ def imagesearch():
 def recommendall():
     if request.method == 'POST':
         data = request.form
-        name = data['nama']
-        hasil_recommend_all = getrecommendationall(name)
-        return render_template('resultrecomall.html', data=hasil_recommend_all)
+        name = data['name']
+        rec_plc = int(data['rec_plc'])
+        rec_csne = int(data['rec_csne'])
+        rec_rgn = int(data['rec_rgn'])
+        rec_city = int(data['rec_city'])
+        rec_price = int(data['rec_price'])
+
+        hasil_recommend_all = getrecommendationall(name, rec_plc, rec_csne, rec_rgn, rec_city, rec_price)
+
+        if type(hasil_recommend_all) != pd.DataFrame:
+            return render_template('resultfailrecom.html')
+        else:
+            return render_template('resultrecomall.html', data=hasil_recommend_all)
     return render_template('recommend-all.html')
 
 
@@ -102,6 +112,10 @@ def prediction_html():
         nl = int(data['nightlife'])
         tw = int(data['takeawaytersedia'])
         qb = int(data['quickbites'])
+        sm = int(data['ruangmerokok'])
+        bar = int(data['bar'])
+        ind = int(data['indonesia'])
+        tmin = int(data['tokominuman'])
 
         feature = pd.DataFrame({
             'reservasimejadirekomendasikan' : [rsvm],
@@ -122,11 +136,15 @@ def prediction_html():
             'liveentertainment' : [ent],
             'kehidupanmalam' : [nl],
             'bawapulangtersedia' : [tw],
-            'Quick Bites' : [qb]
+            'Quick Bites' : [qb],
+            'areamerokok' : [sm],
+            'Bar' : [bar],
+            'Indonesia' : [ind],
+            'Toko Minuman' : [tmin]
         })
 
-        hasil=prediction(feature)
-        return render_template('resultprediction.html', hasil_prediksi=hasil)
+        hasil_pred = prediction(fd, feature)
+        return render_template('resultprediction.html', hasil_prediksi=hasil_pred)
     return render_template('prediction.html')
 
 

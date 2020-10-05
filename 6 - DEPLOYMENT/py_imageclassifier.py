@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing import image
 
 def imgclassify(files):
 
-    model = keras.models.load_model('ZomateTF07.h5')
+    model = keras.models.load_model('ZomateTF09.h5')
     category = {0: 'Ayam', 1: 'Bakmi', 2: 'Bakso', 3: 'Desserts', 4: 'Kopi', 5: 'Kue & Roti', 6: 'Seafood', 7: 'Snacks', 8: 'Soto', 9: 'Tea'}
 
     img = image.load_img(files, target_size=(160, 160))
